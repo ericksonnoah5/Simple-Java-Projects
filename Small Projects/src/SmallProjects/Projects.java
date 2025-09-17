@@ -35,8 +35,8 @@ public class Projects implements ActionListener{
 	button2 = new JButton("Bubble Sort");
 	button3 = new JButton("Calculator");
 	button4 = new JButton("Jokes");
-	JButton left = new JButton("->");
-	JButton right = new JButton("<-");
+	JButton left = new JButton(">");
+	JButton right = new JButton("<");
 	ArrayList<JButton> butlist = new ArrayList<JButton>();
 
 
