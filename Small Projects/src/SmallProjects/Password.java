@@ -59,7 +59,7 @@ public class Password implements ActionListener{
 		enterBut.setFont(font);
 		enterBut.setBounds(75,325,100,40);
 		enterBut.addActionListener(this);
-		enterBut.setBackground(color3);
+		enterBut.setBackground(Color.white);
 		
 		header.setFont(font);
 		header.setBounds(75,100,500,40);

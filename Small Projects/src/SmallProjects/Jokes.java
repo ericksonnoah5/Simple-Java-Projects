@@ -78,7 +78,7 @@ public class Jokes implements ActionListener{
 		myjoketext.setBounds(0, 0, 1000, 50);
 		myjoketext.setLayout(null);
 		myjoketext.setText(joke);
-		myjoketext.setBackground(color2);
+		myjoketext.setBackground(Color.white);
 		
 		background.setBackground(color1);
 		background.setBounds(0, 0, 600, 250);
@@ -91,7 +91,7 @@ public class Jokes implements ActionListener{
 		button.setBounds(200, 100, 150, 50);
 		button.setLayout(null);
 		button.addActionListener(this);
-		button.setBackground(color1);
+		button.setBackground(Color.white);
 		
 		
 		
