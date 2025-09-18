@@ -32,7 +32,7 @@ public class Jokes implements ActionListener{
 	public Jokes(){
 		frame = new JFrame("Fun");
 		frame.setLayout(null);
-		frame.setBounds(650, 150, 600, 250);
+		frame.setBounds(450, 200, 600, 250);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		background = new JPanel();
@@ -55,6 +55,7 @@ public class Jokes implements ActionListener{
 			if(!scnr.hasNext()) {
 				break;
 			}
+			
 		if(Integer.toString(randomJoke).equals(scnr.next())) {
 			while(true) {
 				if(!scnr.hasNext()) {
@@ -65,14 +66,14 @@ public class Jokes implements ActionListener{
 					break;
 				}
 			}
-			
 		}
 		else if (scnr.hasNext()){
 		}
 		else {
 			break;
 		}
-		}
+	}
+		
 		myjoketext = new JTextField();
 		myjoketext.setEditable(false);
 		myjoketext.setBounds(0, 0, 1000, 50);
@@ -85,25 +86,17 @@ public class Jokes implements ActionListener{
 		frontpanel.setBackground(color2);
 		frontpanel.setBounds(50, 75, 475, 100);
 		
-		
-		
 		button = new JButton("New Joke");
 		button.setBounds(200, 100, 150, 50);
 		button.setLayout(null);
 		button.addActionListener(this);
 		button.setBackground(Color.white);
 		
-		
-		
-		
 		frame.add(button);
 		frame.add(myjoketext);
 		frame.add(frontpanel);
 		frame.add(background);
 		frame.setVisible(true);
-		
-		
-		
 	}	
 	
 	  @Override
@@ -117,6 +110,7 @@ public class Jokes implements ActionListener{
 		  randomJoke = rand.nextInt(100)+1;
 		  file = new File("myTextFilex.txt");
 		  joke = "";
+		  
 		  while(true) {
 			  if(!scnr.hasNext()) {
 					break;
@@ -126,27 +120,21 @@ public class Jokes implements ActionListener{
 						if(!scnr.hasNext()) {
 							break;
 						}
-						
 						joke+=scnr.next()+" ";
 						if(joke.contains(".")) {
 							break;
 						}
-					}
-					
+					}	
 				}
 				else if (scnr.hasNext()){
 				}
 				else {
 					break;
 				}
-				
-				}
+			}
 		  myjoketext.setText(joke);
 	    }
-	
-	
-	
-}			
+	}			
 		
 		
 	

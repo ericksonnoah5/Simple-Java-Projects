@@ -56,17 +56,12 @@ public class Bubblesort implements ActionListener{
 		Enter.setBounds(100, 300, 100, 50);
 		Enter.addActionListener(this);
 		
-		
-		
 		window.add(Enter);
 		window.add(numberField);
 		window.add(instructions);
 		window.add(title);
 		window.add(background);
 		window.setVisible(true);
-		
-		
-		
 		
 	}
 	
@@ -91,6 +86,7 @@ public class Bubblesort implements ActionListener{
 			ArrayList <Integer> list = new ArrayList <Integer>();
 			String Snumber = "";
 			int Inumber =0;
+			
 			for(int i=0;i<numbersString.length();i++) {
 				if(i==numbersString.length()-1 && (
 						numbersString.charAt(i)=='0'||
@@ -130,45 +126,22 @@ public class Bubblesort implements ActionListener{
 					Snumber="Error";
 					break;
 				}
-		
 			}
-			
 			sortList(list);
 			if(Snumber=="Error") {
 			}
 			else {
 				Snumber="";
-			for(int i=0;i<list.size();i++) {
+				for(int i=0;i<list.size();i++) {
 				if(i==list.size()-1) {
-					
 					Snumber+=Integer.toString(list.get(i));
 				}
 				else {
-				
 				Snumber+=Integer.toString(list.get(i))+",";
 				}
+				}
 			}
-			}
-			
 			numberField.setText(Snumber);
 		}
 	}
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		
-		
-		Bubblesort listSorter = new Bubblesort();
-		
-		
-		
-		
-		
-		
-	}
-
-	
 }

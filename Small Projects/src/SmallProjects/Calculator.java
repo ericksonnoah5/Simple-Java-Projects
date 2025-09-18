@@ -31,7 +31,7 @@ public class Calculator implements ActionListener{
 	public Calculator() {
 		window = new JFrame("Calculator");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setBounds(650, 100, 420,550);
+		window.setBounds(500, 150, 420,550);
 		window.setResizable(false);
 		window.setLayout(null);
 		window.setLayout(null);
@@ -130,12 +130,13 @@ public class Calculator implements ActionListener{
 			textf.setText(textf.getText()+"9");
 			count+=1;
 		}
+		
 		if(e.getSource()==add) {
 			if (count==0 || textf.getText().substring(0).equals(".")||textf.getText().substring(0).equals("-") ) {
 			}
 			else {
 				 if(textf.getText().contains("/") || textf.getText().contains("*") || textf.getText().contains("+")) {	
-				}
+				 }
 				 else if(textf.getText().contains("-")) {
 				if (textf.getText().substring(0,1).equals("-")) {
 					num1=Double.parseDouble(textf.getText());
@@ -154,6 +155,7 @@ public class Calculator implements ActionListener{
 			}
 		}
 	}
+		
 		if(e.getSource()==sub) {
 			if(count==0) {
 				textf.setText("-");
@@ -161,18 +163,18 @@ public class Calculator implements ActionListener{
 			}
 			else {
 				if (textf.getText().substring(0).equals(".")||textf.getText().substring(0).equals("-")) {
-			}
-				else {
-			if(textf.getText().contains("+") || textf.getText().contains("/") || textf.getText().contains("*")) {
-			}
-			else if(textf.getText().contains("-")) {
-					if (textf.getText().substring(0,1).equals("-") && !(textf.getText().substring(1).contains("-"))) {
-						num1=Double.parseDouble(textf.getText());
-						operation+="-";
-						count+=1;
-						endcount=count;
-						textf.setText(textf.getText()+"-");
 				}
+				else {
+					if(textf.getText().contains("+") || textf.getText().contains("/") || textf.getText().contains("*")) {
+					}
+					else if(textf.getText().contains("-")) {
+						if (textf.getText().substring(0,1).equals("-") && !(textf.getText().substring(1).contains("-"))) {
+							num1=Double.parseDouble(textf.getText());
+							operation+="-";
+							count+=1;
+							endcount=count;
+							textf.setText(textf.getText()+"-");
+						}
 					else {
 				}
 			}
@@ -186,22 +188,22 @@ public class Calculator implements ActionListener{
 		}
 	}
 }
+		
 		if(e.getSource()==mul) {
 			if (count==0 || textf.getText().substring(0).equals(".")||textf.getText().substring(0).equals("-")) {
 			}
 			else {
 				if(textf.getText().contains("/") || textf.getText().contains("*") || textf.getText().contains("+")) {
 				}
-					else if(textf.getText().contains("-")) {
-						if (textf.getText().substring(0,1).equals("-")) {
-							num1=Double.parseDouble(textf.getText());
-							operation+="/";
-							count+=1;
-							endcount=count;
-							textf.setText(textf.getText()+"/");			
-			}
-						else {
-					
+				else if(textf.getText().contains("-")) {
+					if (textf.getText().substring(0,1).equals("-")) {
+						num1=Double.parseDouble(textf.getText());
+						operation+="/";
+						count+=1;
+						endcount=count;
+						textf.setText(textf.getText()+"/");			
+					}
+					else {	
 				}
 			}
 			else {
@@ -212,24 +214,23 @@ public class Calculator implements ActionListener{
 				textf.setText(textf.getText()+"*");
 			}
 		}
-		}
+	}
+		
 		if(e.getSource()==div) {
 			if (count==0 || textf.getText().substring(0).equals(".")||textf.getText().substring(0).equals("-")) {
 			}
 			else {
-			if(textf.getText().contains("+") || textf.getText().contains("/") || textf.getText().contains("*")) {
-			}
+				if(textf.getText().contains("+") || textf.getText().contains("/") || textf.getText().contains("*")) {
+				}
 			else if(textf.getText().contains("-")) {
 				if (textf.getText().substring(0,1).equals("-")) {
 					num1=Double.parseDouble(textf.getText());
 					operation+="/";
 					count+=1;
 					endcount=count;
-					textf.setText(textf.getText()+"/");	
-					
-			}
+					textf.setText(textf.getText()+"/");		
+				}
 				else {
-					
 				}
 			}
 			else {
@@ -240,13 +241,11 @@ public class Calculator implements ActionListener{
 				textf.setText(textf.getText()+"/");
 			}
 		}
-		}
+	}
+		
 		if(e.getSource()==dec) {
-			
-			
 			if(textf.getText().contains(".")) {
 				if(operation=="" || (textf.getText().substring(endcount)).contains(".")) {
-					
 				}
 				else {
 					textf.setText(textf.getText()+".");
@@ -257,7 +256,6 @@ public class Calculator implements ActionListener{
 				textf.setText(textf.getText()+".");
 				count+=1;
 			}
-			
 		}
 		if(e.getSource()==delete) {
 			if (count==0) {
@@ -266,15 +264,11 @@ public class Calculator implements ActionListener{
 			textf.setText(textf.getText().substring(0,count-1));
 			count-=1;
 			}
-			
 		}
-	
-			
 		
 		if(e.getSource()==enter) {
 			if(count==endcount || textf.getText().substring(count).equals("/") || textf.getText().substring(count).equals("+") 
 					|| textf.getText().substring(count).equals("-") || textf.getText().substring(count).equals("*") || textf.getText().substring(count-1).equals(".")) {
-				
 			}
 			else {
 			if(operation.contains("+")) {
@@ -346,42 +340,37 @@ public class Calculator implements ActionListener{
 					count+=1;
 				}
 			}
-			}
 		}
+	}
 			
-			
-			
-		
 		if(e.getSource()==fun) {
-		
 				if(funbut=false) {
-				funbut=true;}
+					funbut=true;
+				}
 				else {
 					funbut=true;
 				}
-				
 				if(funbut==true) {
 					window.dispose();
 					new Jokes();
 				}
-				
-				
-			}
-			
-	
+		}
+		
 		if(e.getSource()==empty) {
 			textf.setText(textf.getText());
 		}
-			if(e.getSource()==clear) {
-				textf.setText("");
-				count=0;
-				endcount=0;
-				num1=0.0;
-				num2=0.0;
-				result=0.0;
-				operation = "";
+		
+		if(e.getSource()==clear) {
+			textf.setText("");
+			count=0;
+			endcount=0;
+			num1=0.0;
+			num2=0.0;
+			result=0.0;
+			operation = "";
 		}
 	}
+		
 		else {
 		if(e.getSource()==clear) {
 			textf.setText("");
@@ -392,16 +381,6 @@ public class Calculator implements ActionListener{
 			result=0.0;
 			operation = "";
 		}
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
+}
 }

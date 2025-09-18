@@ -44,12 +44,10 @@ public class Password implements ActionListener{
 		frontpanel.setBackground(color2);
 		frontpanel.setBounds(50, 50, 375, 375);
 		
-		
 		frame.setResizable(false);
 		frame.setLayout(null);
-		frame.setBounds(650, 150, 500, 550);
+		frame.setBounds(500, 150, 500, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		
 		pText.setBounds(75, 150, 300, 50);
 		pText.setFont(font);
@@ -67,7 +65,6 @@ public class Password implements ActionListener{
 		errorMsg.setFont(font);
 		errorMsg.setBounds(75,2000,500,40);
 		
-		
 		frame.add(errorMsg);
 		frame.add(header);
 		frame.add(enterBut);
@@ -75,9 +72,7 @@ public class Password implements ActionListener{
 		frame.add(uText);
 		frame.add(frontpanel);
 		frame.add(background);
-		
 		frame.setVisible(true);
-		
 	}
 	
 	@Override

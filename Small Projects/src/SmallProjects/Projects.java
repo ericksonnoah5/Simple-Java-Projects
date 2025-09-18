@@ -39,7 +39,6 @@ public class Projects implements ActionListener{
 	JButton right = new JButton("<");
 	ArrayList<JButton> butlist = new ArrayList<JButton>();
 
-
 	window.setLayout(null);
 	window.setBounds(350, 100, 800, 700);
 	window.setResizable(false);
@@ -63,7 +62,6 @@ public class Projects implements ActionListener{
 	right.setBounds(250, 35, 50, 30);
 	right.setBackground(Color.white);
 
-
 	for(int i=0; i<4;i++) {
 		butlist.get(i).setPreferredSize(new Dimension(240,240));
 		butlist.get(i).setBackground(Color.white);
@@ -79,8 +77,6 @@ public class Projects implements ActionListener{
 	mainPanel.add(button2);
 	mainPanel.add(button1);
 
-
-
 	JLabel numberofprojects = new JLabel(Integer.toString(numProjects));
 	numberofprojects.setForeground(Color.white);
 	numberofprojects.setLayout(null);
@@ -93,7 +89,6 @@ public class Projects implements ActionListener{
 	currentnumberofprojects.setBounds(370, 25, 100, 50);
 	currentnumberofprojects.setFont(font);
 
-
 	window.add(currentnumberofprojects);
 	window.add(numberofprojects);
 	window.add(right);
@@ -102,17 +97,11 @@ public class Projects implements ActionListener{
 	window.add(title);
 	window.add(background);
 	window.setVisible(true);
-
-
 }
-
-
 
 	public int getNumProjects() {
 		return numProjects;
-}
-
-
+	}
 
 @Override
 	public void actionPerformed(ActionEvent e) {
