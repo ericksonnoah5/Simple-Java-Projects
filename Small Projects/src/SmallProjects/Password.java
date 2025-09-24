@@ -18,163 +18,161 @@ import javax.swing.JTextField;
 
 public class Password implements ActionListener {
 
-    JFrame frame;
-    JTextField uText, pText;
-    public JButton enterBut;
-    public JLabel header, errorMsg, newerrorMsg;
-    Font font;
-    public String Password;
-    public String Username;
-    JPanel background, frontpanel;
-    public Color color1, color2, color3;
-    public Scanner scnr;
-    public JButton create;
-    public String user;
-    public String pass;
-    public File file = new File("passwordholder.txt");
-    public String current;
-    public boolean username;
-    public boolean password;
-    public boolean createaccount = false;
+	public JFrame window;
+	public JTextField textUser, textPass;
+	public JButton butEnter;
+	public JLabel header, errMsgWrong, errMsgDone;
+	public Font font;
+	public JPanel background1, background2;
+	public Color cBlueGreen, cCyan, cDarkBlue;
+	public Scanner scnr;
+	public JButton butCreate;
+	public String strUser;
+	public String strPass;
+	public File file = new File("passwordholder.txt");
+	public String strCurrent;
+	public boolean boolUsername;
+	public boolean boolPassword;
+	public boolean boolCreateAccount = false;
 
-    public Password() {
-        frame = new JFrame("Password");
-        pText = new JTextField();
-        uText = new JTextField();
-        enterBut = new JButton("Enter");
-        header = new JLabel("Enter a Username and Password");
-        errorMsg = new JLabel("Error Incorrect Username or Password");
-        newerrorMsg = new JLabel("Account has already been created");
-        font = new Font("Serif", Font.BOLD, 18);
-        background = new JPanel();
-        frontpanel = new JPanel();
-        create = new JButton("Create New Account");
+	public Password() {
+		window = new JFrame("Password");
+		textPass = new JTextField();
+		textUser = new JTextField();
+		butEnter = new JButton("Enter");
+		header = new JLabel("Enter a Username and Password");
+		errMsgWrong = new JLabel("Error Incorrect Username or Password");
+		errMsgDone = new JLabel("Account has already been created");
+		font = new Font("Serif", Font.BOLD, 18);
+		background1 = new JPanel();
+		background2 = new JPanel();
+		butCreate = new JButton("Create New Account");
 
-        color1 = Color.decode("#7CCBC4");
-        color2 = Color.decode("#A5DAD5");
-        color3 = Color.decode("#1D63C6");
+		cBlueGreen = Color.decode("#7CCBC4");
+		cCyan = Color.decode("#A5DAD5");
+		cDarkBlue = Color.decode("#1D63C6");
 
-        background.setBackground(color1);
-        background.setBounds(0, 0, 500, 550);
-        frontpanel.setBackground(color2);
-        frontpanel.setBounds(50, 50, 375, 375);
+		background1.setBackground(cBlueGreen);
+		background1.setBounds(0, 0, 500, 550);
+		background2.setBackground(cCyan);
+		background2.setBounds(50, 50, 375, 375);
 
-        frame.setResizable(false);
-        frame.setLayout(null);
-        frame.setBounds(500, 150, 500, 550);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setResizable(false);
+		window.setLayout(null);
+		window.setBounds(500, 150, 500, 550);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        pText.setBounds(75, 250, 300, 50);
-        pText.setFont(font);
+		textPass.setBounds(75, 250, 300, 50);
+		textPass.setFont(font);
 
-        uText.setFont(font);
-        uText.setBounds(75, 150, 300, 50);
+		textUser.setFont(font);
+		textUser.setBounds(75, 150, 300, 50);
 
-        enterBut.setFont(font);
-        enterBut.setBounds(75, 325, 100, 40);
-        enterBut.addActionListener(this);
-        enterBut.setBackground(Color.white);
+		butEnter.setFont(font);
+		butEnter.setBounds(75, 325, 100, 40);
+		butEnter.addActionListener(this);
+		butEnter.setBackground(Color.white);
 
-        header.setFont(font);
-        header.setBounds(75, 100, 500, 40);
-        header.setForeground(Color.black);
+		header.setFont(font);
+		header.setBounds(75, 100, 500, 40);
+		header.setForeground(Color.black);
 
-        errorMsg.setFont(font);
-        errorMsg.setBounds(75, 2000, 500, 40);
+		errMsgWrong.setFont(font);
+		errMsgWrong.setBounds(75, 2000, 500, 40);
 
-        newerrorMsg.setFont(font);
-        newerrorMsg.setBounds(75, 2000, 500, 40);
+		errMsgDone.setFont(font);
+		errMsgDone.setBounds(75, 2000, 500, 40);
 
-        create.setFont(font);
-        create.setBounds(175, 325, 210, 40);
-        create.addActionListener(this);
-        create.setBackground(Color.white);
+		butCreate.setFont(font);
+		butCreate.setBounds(175, 325, 210, 40);
+		butCreate.addActionListener(this);
+		butCreate.setBackground(Color.white);
 
-        frame.add(newerrorMsg);
-        frame.add(create);
-        frame.add(errorMsg);
-        frame.add(header);
-        frame.add(enterBut);
-        frame.add(pText);
-        frame.add(uText);
-        frame.add(frontpanel);
-        frame.add(background);
-        frame.setVisible(true);
-    }
+		window.add(errMsgDone);
+		window.add(butCreate);
+		window.add(errMsgWrong);
+		window.add(header);
+		window.add(butEnter);
+		window.add(textPass);
+		window.add(textUser);
+		window.add(background2);
+		window.add(background1);
+		window.setVisible(true);
+	}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(enterBut)) {
-            user = uText.getText();
-            pass = pText.getText();
-            username = false;
-            password = false;
-            current = "";
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(butEnter)) {
+			strUser = textUser.getText();
+			strPass = textPass.getText();
+			boolUsername = false;
+			boolPassword = false;
+			strCurrent = "";
 
-            try {
-                scnr = new Scanner(file);
-            } catch (FileNotFoundException er) {
-                System.out.print("Error");
-                er.printStackTrace();
-            }
+			try {
+				scnr = new Scanner(file);
+			} catch (FileNotFoundException err) {
+				System.out.print("Error");
+				err.printStackTrace();
+			}
 
-            while (true) {
-                if (!scnr.hasNext()) {
-                    break;
-                }
-                current = scnr.next();
+			while (true) {
+				if (!scnr.hasNext()) {
+					break;
+				}
+				strCurrent = scnr.next();
 
-                if (current.equals("User:" + user)) {
-                    username = true;
-                    current = scnr.next();
-                    if (current.equals("Pass:" + pass)) {
-                        password = true;
-                    }
-                    break;
-                }
-            }
+				if (strCurrent.equals("User:" + strUser)) {
+					boolUsername = true;
+					strCurrent = scnr.next();
+					if (strCurrent.equals("Pass:" + strPass)) {
+						boolPassword = true;
+					}
+					break;
+				}
+			}
 
-            if (username == true && password == true) {
-                frame.dispose();
-                new Calculator();
-            } else {
-                errorMsg.setBounds(75, 380, 500, 40);
-            }
-        } else if (e.getSource().equals(create)) {
-            user = uText.getText();
-            pass = pText.getText();
+			if (boolUsername == true && boolPassword == true) {
+				window.dispose();
+				new Calculator();
+			} else {
+				errMsgWrong.setBounds(75, 380, 500, 40);
+			}
+		} else if (e.getSource().equals(butCreate)) {
+			strUser = textUser.getText();
+			strPass = textPass.getText();
 
-            try {
-                scnr = new Scanner(file);
-            } catch (FileNotFoundException er) {
-                System.out.print("Error");
-                er.printStackTrace();
-            }
+			try {
+				scnr = new Scanner(file);
+			} catch (FileNotFoundException err) {
+				System.out.print("Error");
+				err.printStackTrace();
+			}
 
-            while (true) {
-                if (!scnr.hasNext()) {
-                    break;
-                }
-                current = scnr.next();
+			while (true) {
+				if (!scnr.hasNext()) {
+					break;
+				}
+				strCurrent = scnr.next();
 
-                if (current.equals("User:" + user)) {
-                    newerrorMsg.setBounds(75, 360, 500, 40);
-                    createaccount = true;
-                    break;
-                }
-            }
+				if (strCurrent.equals("User:" + strUser)) {
+					errMsgDone.setBounds(75, 360, 500, 40);
+					boolCreateAccount = true;
+					break;
+				}
+			}
 
-            if (createaccount == false) {
-                try {
-                    FileWriter writer = new FileWriter("passwordholder.txt", true);
-                    writer.write("\n");
-                    writer.write("User:" + user + " Pass:" + pass);
-                    writer.close();
-                } catch (IOException err) {
-                    err.printStackTrace();
-                }
-                createaccount = true;
-            }
-        }
-    }
+			if (boolCreateAccount == false) {
+				try {
+					FileWriter writer = new FileWriter("passwordholder.txt", true);
+					writer.write("\n");
+					writer.write("User:" + strUser + " Pass:" + strPass);
+					writer.close();
+				} catch (IOException err) {
+					err.printStackTrace();
+				}
+				boolCreateAccount = true;
+			}
+		}
+	}
 }

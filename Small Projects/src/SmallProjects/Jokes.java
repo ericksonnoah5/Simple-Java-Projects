@@ -15,119 +15,119 @@ import javax.swing.JTextField;
 
 public class Jokes implements ActionListener {
 
-    private JFrame frame;
-    private Random rand = new Random();
-    private int randomJoke;
-    private Scanner scnr;
-    private File file = new File("myTextFilex.txt");
-    private String joke = "";
-    private JTextField myjoketext;
-    private JButton button;
-    private JPanel background, frontpanel;
-    Color color1, color2, color3;
+	public JFrame window;
+	public Random rand = new Random();
+	public int randJoke;
+	public Scanner scnr;
+	public File file = new File("myTextFilex.txt");
+	public String strJoke = "";
+	public JTextField textJoke;
+	public JButton butJoke;
+	public JPanel background2, background1;
+	public Color cBlueGreen, cCyan, cDarkBlue;
 
-    public Jokes() {
-        frame = new JFrame("Fun");
-        frame.setLayout(null);
-        frame.setBounds(450, 200, 600, 250);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+	public Jokes() {
+		window = new JFrame("Fun");
+		window.setLayout(null);
+		window.setBounds(450, 200, 600, 250);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setResizable(false);
 
-        background = new JPanel();
-        frontpanel = new JPanel();
+		background2 = new JPanel();
+		background1 = new JPanel();
 
-        color1 = Color.decode("#7CCBC4");
-        color2 = Color.decode("#A5DAD5");
-        color3 = Color.decode("#1D63C6");
+		cBlueGreen = Color.decode("#7CCBC4");
+		cCyan = Color.decode("#A5DAD5");
+		cDarkBlue = Color.decode("#1D63C6");
 
-        try {
-            scnr = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            System.out.print("Error");
-            e.printStackTrace();
-        }
+		try {
+			scnr = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			System.out.print("Error");
+			e.printStackTrace();
+		}
 
-        randomJoke = rand.nextInt(100) + 1;
+		randJoke = rand.nextInt(100) + 1;
 
-        while (true) {
-            if (!scnr.hasNext()) {
-                break;
-            }
-            if (Integer.toString(randomJoke).equals(scnr.next())) {
-                while (true) {
-                    if (!scnr.hasNext()) {
-                        break;
-                    }
-                    joke += scnr.next() + " ";
-                    if (joke.contains(".")) {
-                        break;
-                    }
-                }
-            } else if (scnr.hasNext()) {
-            } else {
-                break;
-            }
-        }
+		while (true) {
+			if (!scnr.hasNext()) {
+				break;
+			}
+			if (Integer.toString(randJoke).equals(scnr.next())) {
+				while (true) {
+					if (!scnr.hasNext()) {
+						break;
+					}
+					strJoke += scnr.next() + " ";
+					if (strJoke.contains(".")) {
+						break;
+					}
+				}
+			} else if (scnr.hasNext()) {
+			} else {
+				break;
+			}
+		}
 
-        myjoketext = new JTextField();
-        myjoketext.setEditable(false);
-        myjoketext.setBounds(0, 0, 1000, 50);
-        myjoketext.setLayout(null);
-        myjoketext.setText(joke);
-        myjoketext.setBackground(Color.white);
+		textJoke = new JTextField();
+		textJoke.setEditable(false);
+		textJoke.setBounds(0, 0, 1000, 50);
+		textJoke.setLayout(null);
+		textJoke.setText(strJoke);
+		textJoke.setBackground(Color.white);
 
-        background.setBackground(color1);
-        background.setBounds(0, 0, 600, 250);
+		background2.setBackground(cBlueGreen);
+		background2.setBounds(0, 0, 600, 250);
 
-        frontpanel.setBackground(color2);
-        frontpanel.setBounds(50, 75, 475, 100);
+		background1.setBackground(cCyan);
+		background1.setBounds(50, 75, 475, 100);
 
-        button = new JButton("New Joke");
-        button.setBounds(200, 100, 150, 50);
-        button.setLayout(null);
-        button.addActionListener(this);
-        button.setBackground(Color.white);
+		butJoke = new JButton("New Joke");
+		butJoke.setBounds(200, 100, 150, 50);
+		butJoke.setLayout(null);
+		butJoke.addActionListener(this);
+		butJoke.setBackground(Color.white);
 
-        frame.add(button);
-        frame.add(myjoketext);
-        frame.add(frontpanel);
-        frame.add(background);
-        frame.setVisible(true);
-    }
+		window.add(butJoke);
+		window.add(textJoke);
+		window.add(background1);
+		window.add(background2);
+		window.setVisible(true);
+	}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        try {
-            scnr = new Scanner(file);
-        } catch (FileNotFoundException ee) {
-            System.out.print("Error");
-            ee.printStackTrace();
-        }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+			scnr = new Scanner(file);
+		} catch (FileNotFoundException ee) {
+			System.out.print("Error");
+			ee.printStackTrace();
+		}
 
-        randomJoke = rand.nextInt(100) + 1;
-        file = new File("myTextFilex.txt");
-        joke = "";
+		randJoke = rand.nextInt(100) + 1;
+		file = new File("myTextFilex.txt");
+		strJoke = "";
 
-        while (true) {
-            if (!scnr.hasNext()) {
-                break;
-            }
-            if (Integer.toString(randomJoke).equals(scnr.next())) {
-                while (true) {
-                    if (!scnr.hasNext()) {
-                        break;
-                    }
-                    joke += scnr.next() + " ";
-                    if (joke.contains(".")) {
-                        break;
-                    }
-                }
-            } else if (scnr.hasNext()) {
-            } else {
-                break;
-            }
-        }
+		while (true) {
+			if (!scnr.hasNext()) {
+				break;
+			}
+			if (Integer.toString(randJoke).equals(scnr.next())) {
+				while (true) {
+					if (!scnr.hasNext()) {
+						break;
+					}
+					strJoke += scnr.next() + " ";
+					if (strJoke.contains(".")) {
+						break;
+					}
+				}
+			} else if (scnr.hasNext()) {
+			} else {
+				break;
+			}
+		}
 
-        myjoketext.setText(joke);
-    }
+		textJoke.setText(strJoke);
+	}
 }
